@@ -39,10 +39,15 @@ for k in stemming:
     for i in range(len(documents)):
         if k in documents[i]:
             documents[i] = documents[i].replace(k, stemming[k])
-            
+
 #Identifying the index terms.
 #--> add your Python code here
 terms = []
+for sentences in documents:
+    sentence = sentences.split()
+    for w in sentence:
+        if w not in terms:
+            terms.append(w)
 
 #Building the document-term matrix by using the tf-idf weights.
 #--> add your Python code here
