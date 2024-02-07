@@ -27,7 +27,6 @@ for w in stopWords:
     for i in range(len(documents)):
         if w in documents[i]:
             documents[i] = documents[i].replace(w, '').strip()
-print(documents)
 
 #Conducting stemming. Hint: use a dictionary to map word variations to their stem.
 #--> add your Python code here
@@ -36,7 +35,11 @@ stemming = {
     "cats": "cat",
     "dogs": "dog"
 }
-
+for k in stemming:
+    for i in range(len(documents)):
+        if k in documents[i]:
+            documents[i] = documents[i].replace(k, stemming[k])
+            
 #Identifying the index terms.
 #--> add your Python code here
 terms = []
