@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------
-# AUTHOR: your name
-# FILENAME: title of the source file
-# SPECIFICATION: description of the program
+# AUTHOR: Darren Nguyen
+# FILENAME: indexing.py
+# SPECIFICATION: Output tf-idf document-term matrix
 # FOR: CS 4250- Assignment #1
 # TIME SPENT: how long it took you to complete the assignment
 #-----------------------------------------------------------*/
@@ -22,11 +22,20 @@ with open('collection.csv', 'r') as csvfile:
 
 #Conducting stopword removal. Hint: use a set to define your stopwords.
 #--> add your Python code here
-stopWords = {?}
+stopWords = {'I', 'and', 'She', 'her', 'They', 'their'}
+for w in stopWords:
+    for i in range(len(documents)):
+        if w in documents[i]:
+            documents[i] = documents[i].replace(w, '').strip()
+print(documents)
 
 #Conducting stemming. Hint: use a dictionary to map word variations to their stem.
 #--> add your Python code here
-steeming = {?}
+stemming = {
+    "loves": "love",
+    "cats": "cat",
+    "dogs": "dog"
+}
 
 #Identifying the index terms.
 #--> add your Python code here
