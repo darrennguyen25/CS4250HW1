@@ -50,8 +50,6 @@ print(terms)
 #Building the document-term matrix by using the tf-idf weights.
 #--> add your Python code here
 docTermMatrix = []
-def findTF(terms, documents):
-    return [[]]
 
 #Printing the document-term matrix.
 #--> add your Python code here
