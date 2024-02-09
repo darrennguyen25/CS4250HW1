@@ -26,7 +26,7 @@ with open('collection.csv', 'r') as csvfile:
 stopWords = {'I', 'and', 'She', 'her', 'They', 'their'}
 for i in range(len(documents)):
     documents[i] = ' '.join([w for w in documents[i].split() if w not in stopWords])
-print("Documents after stopword removal:", documents)
+print("stopword removal:", documents)
 
 #Conducting stemming. Hint: use a dictionary to map word variations to their stem.
 #--> add your Python code here
@@ -37,36 +37,24 @@ stemming = {
 }
 for i in range(len(documents)):
     documents[i] = ' '.join([documents[i].replace(w, stemming[w]) for w in stemming if w in documents[i].split()])
-# for k in stemming:
-#     for i in range(len(documents)):
-#         if k in documents[i]:
-#             documents[i] = documents[i].replace(k, stemming[k])
-print("Documents after stemming removal", documents)
+print("stemming removal", documents)
 
 #Identifying the index terms.
 #--> add your Python code here
-terms = list(set([w for sentences in documents for w in sentences.split()]))
-terms.sort(reverse=True)
-print("Index terms:", terms)
+terms = list({w for d in documents for w in d.split()})
+print("index terms:", terms)
 
 #Building the document-term matrix by using the tf-idf weights.
 #--> add your Python code here
 docTermMatrix = []
 
 #Calculating the term frequency (tf) for each document-term pair.
-def findtf(t, d):
-    tf = {}
-    for w in t:
-        tf[w] = d.count(w)
-    return tf
-
-doc1tf = findtf(terms, documents[0])
-doc2tf = findtf(terms, documents[1])
-doc3tf = findtf(terms, documents[2])
-print(doc1tf)
-print(doc2tf)
-print(doc3tf)
-
-
+tf = []
+for d in documents:
+    freq = {}
+    for w in d.split():
+        freq[w] = freq.get(w, 0) + 1
+    tf.append(freq)
+print(tf)
 #Printing the document-term matrix.
 #--> add your Python code here
