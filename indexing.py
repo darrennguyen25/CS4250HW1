@@ -45,6 +45,7 @@ for i in range(len(documents)):
 #Identifying the index terms.
 #--> add your Python code here
 terms = list(set([w for sentences in documents for w in sentences.split()]))
+terms.sort(reverse=True)
 print(terms)
 
 #Building the document-term matrix by using the tf-idf weights.
