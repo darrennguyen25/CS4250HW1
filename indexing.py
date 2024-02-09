@@ -48,13 +48,14 @@ print("index terms:", terms)
 #--> add your Python code here
 docTermMatrix = []
 
-#Calculating the term frequency (tf) for each document-term pair.
-tf = []
-for d in documents:
-    freq = {}
-    for w in d.split():
-        freq[w] = freq.get(w, 0) + 1
-    tf.append(freq)
-print(tf)
+tf = [{w: d.split().count(w) for w in set(d.split())} for d in documents]
+print("tf for documents:", tf)
+
+idf = []
+for w in terms:
+    df = sum([1 for d in documents if w in d.split()])
+    idf += [math.log10(len(documents)/df)]
+print("idf for terms:", idf)
+
 #Printing the document-term matrix.
 #--> add your Python code here
