@@ -35,18 +35,23 @@ stemming = {
     "cats": "cat",
     "dogs": "dog"
 }
-for k in stemming:
-    for i in range(len(documents)):
-        if k in documents[i]:
-            documents[i] = documents[i].replace(k, stemming[k])
+for i in range(len(documents)):
+    documents[i] = ' '.join([documents[i].replace(k, stemming[k]) if k in stemming else k for k in documents[i].split()])
+# for k in stemming:
+#     for i in range(len(documents)):
+#         if k in documents[i]:
+#             documents[i] = documents[i].replace(k, stemming[k])
 
 #Identifying the index terms.
 #--> add your Python code here
 terms = list(set([w for sentences in documents for w in sentences.split()]))
 print(terms)
+
 #Building the document-term matrix by using the tf-idf weights.
 #--> add your Python code here
 docTermMatrix = []
+def findTF(terms, documents):
+    return [[]]
 
 #Printing the document-term matrix.
 #--> add your Python code here
