@@ -10,6 +10,7 @@
 
 #Importing some Python libraries
 import csv
+import math
 
 documents = []
 
@@ -23,10 +24,9 @@ with open('collection.csv', 'r') as csvfile:
 #Conducting stopword removal. Hint: use a set to define your stopwords.
 #--> add your Python code here
 stopWords = {'I', 'and', 'She', 'her', 'They', 'their'}
-for w in stopWords:
-    for i in range(len(documents)):
-        if w in documents[i]:
-            documents[i] = documents[i].replace(w, '').strip()
+for i in range(len(documents)):
+    documents[i] = ' '.join([w for w in documents[i].split() if w not in stopWords])
+print(documents)
 
 #Conducting stemming. Hint: use a dictionary to map word variations to their stem.
 #--> add your Python code here
@@ -42,13 +42,8 @@ for k in stemming:
 
 #Identifying the index terms.
 #--> add your Python code here
-terms = []
-for sentences in documents:
-    sentence = sentences.split()
-    for w in sentence:
-        if w not in terms:
-            terms.append(w)
-
+terms = list(set([w for sentences in documents for w in sentences.split()]))
+print(terms)
 #Building the document-term matrix by using the tf-idf weights.
 #--> add your Python code here
 docTermMatrix = []
