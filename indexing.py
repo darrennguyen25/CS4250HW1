@@ -37,11 +37,11 @@ stemming = {
 }
 for i in range(len(documents)):
     documents[i] = ' '.join([documents[i].replace(w, stemming[w]) for w in stemming if w in documents[i].split()])
-print("stemming removal", documents)
+# print("stemming removal", documents)
 
 terms = []
 [terms.append(w) for d in documents for w in d.split(' ') if w not in terms]
-print("index terms:", terms)
+# print("index terms:", terms)
 
 #Building the document-term matrix by using the tf-idf weights.
 #--> add your Python code here
