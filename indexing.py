@@ -26,7 +26,7 @@ with open('collection.csv', 'r') as csvfile:
 stopWords = {'I', 'and', 'She', 'her', 'They', 'their'}
 for i in range(len(documents)):
     documents[i] = ' '.join([w for w in documents[i].split() if w not in stopWords])
-print("stopword removal:", documents)
+# print("stopword removal:", documents)
 
 #Conducting stemming. Hint: use a dictionary to map word variations to their stem.
 #--> add your Python code here
