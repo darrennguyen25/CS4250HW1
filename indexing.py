@@ -3,7 +3,7 @@
 # FILENAME: indexing.py
 # SPECIFICATION: Output tf-idf document-term matrix from a collection of documents
 # FOR: CS 4250- Assignment #1
-# TIME SPENT: 5 hours
+# TIME SPENT: 8 hours
 #-----------------------------------------------------------*/
 
 #IMPORTANT NOTE: DO NOT USE ANY ADVANCED PYTHON LIBRARY TO COMPLETE THIS CODE SUCH AS numpy OR pandas. You have to work here only with standard arrays
