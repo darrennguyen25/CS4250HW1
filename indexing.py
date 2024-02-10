@@ -3,7 +3,7 @@
 # FILENAME: indexing.py
 # SPECIFICATION: Output tf-idf document-term matrix from a collection of documents
 # FOR: CS 4250- Assignment #1
-# TIME SPENT: how long it took you to complete the assignment
+# TIME SPENT: 5 hours
 #-----------------------------------------------------------*/
 
 #IMPORTANT NOTE: DO NOT USE ANY ADVANCED PYTHON LIBRARY TO COMPLETE THIS CODE SUCH AS numpy OR pandas. You have to work here only with standard arrays
@@ -62,5 +62,9 @@ docTermMatrix = [[findtfidf(t, d, documents) for t in terms] for d in documents]
 #Printing the document-term matrix.
 #--> add your Python code here
 print("Document-Term Matrix:")
-for d in docTermMatrix:
-    print(d)
+print("\tlove\tcat\tdog")
+for i, d in enumerate(docTermMatrix):
+    print(f"Doc{i+1}:", end="\t")
+    for j, t in enumerate(d):
+        print(f"{t:.3f}", end="\t")
+    print()
